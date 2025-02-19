@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucaleona Wardrobe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #d2b48c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .product {
+            background-color: white;
+            padding: 15px;
+            margin: 10px auto;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product button {
+            background-color: #d2b48c;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lucaleona Wardrobe</h1>
+        <p>"Style with Comfort, Elegance with Affordability"</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header><section id="home">
+    <h2>Welcome to Lucaleona Wardrobe</h2>
+    <p>Find your perfect style from our exclusive collection of kurtis, midis, nightwear, and more.</p>
+    <input type="text" id="search" placeholder="Search for dresses..." onkeyup="searchProducts()">
+</section>
+
+<section id="shop">
+    <h2>Shop Our Collection</h2>
+    <div class="product">
+        <img src="kurti.jpg" alt="Casual Kurti">
+        <h3>Casual Kurti</h3>
+        <p>Price: <del>₹999</del> <strong>₹750 (25% OFF)</strong></p>
+        <select>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select>
+        <button onclick="addToCart('Casual Kurti', 750)">Add to Cart</button>
+        <button onclick="buyNow('Casual Kurti', 750)">Buy Now</button>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>Lucaleona Wardrobe brings you trendy and comfortable outfits designed for elegance and affordability.</p>
+    <p>Instagram: <a href="https://instagram.com/luca_leonawardrobe">@lucaleona_wardrobe</a></p>
+    <p>Email: <a href="mailto:lucaleona1995@gmail.com">lucaleona1995@gmail.com</a></p>
+    <p>YouTube: <a href="https://youtube.com/@lucaleona1995">lucaleona1995</a></p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:lucaleona1995@gmail.com">lucaleona1995@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/luca_leonawardrobe">@lucaleona_wardrobe</a></p>
+</section>
+
+<script>
+    function searchProducts() {
+        let input = document.getElementById('search').value.toLowerCase();
+        let products = document.getElementsByClassName('product');
+        for (let i = 0; i < products.length; i++) {
+            let productName = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+            if (productName.includes(input)) {
+                products[i].style.display = "block";
+            } else {
+                products[i].style.display = "none";
+            }
+        }
+    }
+
+    function addToCart(item, price) {
+        alert(item + " added to cart at ₹" + price);
+    }
+
+    function buyNow(item, price) {
+        alert("Proceeding to buy " + item + " for ₹" + price);
+    }
+</script>
+
+</body>
+</html>
